@@ -21,10 +21,10 @@ jobs:
       matrix:
         config:
           [
-            { name: normal-liga, args: "--normal --liga" },
-            { name: normal-no-liga, args: "--normal --no-liga" },
-            { name: liga, args: "--liga" },
-            { name: no-liga, args: "--no-liga" }
+            { name: normal-liga, args: "--normal --liga --nf-mono --width narrow --feat cv35,ss06" },
+            { name: normal-no-liga, args: "--normal --no-liga --nf-mono --width narrow --feat cv35,ss06" },
+            { name: liga, args: "--liga --nf-mono --width narrow --feat cv35,ss06" },
+            { name: no-liga, args: "--no-liga --nf-mono --width narrow --feat cv35,ss06" }
           ]
     runs-on: ubuntu-latest
     steps:
@@ -37,6 +37,7 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Build fonts
         run: |
+          python build.py --archive --cn-both --hinted ${{ matrix.config.args }} ${{ github.event.inputs.build_args }}
           python build.py --archive --cn-both --no-hinted --cache ${{ matrix.config.args }} ${{ github.event.inputs.build_args }}
       - uses: actions/upload-artifact@v4
         with:
