@@ -22,8 +22,8 @@ jobs:
         config: [
           {name: normal-liga, args: "--normal --liga --nf-mono --width narrow --feat cv35,ss06"},
           {name: normal-no-liga, args: "--normal --no-liga --nf-mono --width narrow --feat cv35,ss06"},
-          {name: liga, args: "--liga"},
-          {name: no-liga, args: "--no-liga"}
+          {name: liga, args: "--liga --nf-mono --width narrow --feat cv35,ss06"},
+          {name: no-liga, args: "--no-liga --nf-mono --width narrow --feat cv35,ss06"}
         ]
     runs-on: ubuntu-latest
     steps:
