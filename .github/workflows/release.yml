@@ -20,8 +20,8 @@ jobs:
     strategy:
       matrix:
         config: [
-          {name: normal-liga, args: "--normal --liga"},
-          {name: normal-no-liga, args: "--normal --no-liga"},
+          {name: normal-liga, args: "--normal --liga --nf-mono --width narrow --feat cv35,ss06"},
+          {name: normal-no-liga, args: "--normal --no-liga --nf-mono --width narrow --feat cv35,ss06"},
           {name: liga, args: "--liga"},
           {name: no-liga, args: "--no-liga"}
         ]
